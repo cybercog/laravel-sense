@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace Cog\Laravel\Sense\Http\Controllers;
 
+use Cog\Laravel\Sense\Http\Middleware\Authenticate;
 use Illuminate\Routing\Controller as BaseController;
 
 class Controller extends BaseController
@@ -24,6 +25,6 @@ class Controller extends BaseController
      */
     public function __construct()
     {
-//        $this->middleware(Authenticate::class);
+        $this->middleware(Authenticate::class);
     }
 }

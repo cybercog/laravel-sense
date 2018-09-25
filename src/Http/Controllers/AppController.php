@@ -38,6 +38,5 @@ class AppController extends Controller
             ->get();
 
         return view('sense::requests', compact('summaries'));
-
     }
 }
