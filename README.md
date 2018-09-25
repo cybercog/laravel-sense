@@ -12,11 +12,12 @@
 
 ## Introduction
 
-**DON'T USE IT ON PRODUCTION! IT WILL ENORMOUSLY SLOW DOWN APPLICATION!**
-
-When you feel that your application is starting to run slower, be careful, it can become a smelling zombie! Open application black box in a minutes!
+> Beware! If you feel that your application starts to run slower, it can become a smelling zombie!
 
 Laravel Sense provides a dashboard for application profiling. Sense allows you to easily monitor key metrics such as HTTP requests & Eloquent queries.
+Open application black box in a minutes!
+
+**DON'T USE IT ON PRODUCTION! IT WILL ENORMOUSLY SLOW DOWN APPLICATION!**
 
 ### Requests list
 
@@ -85,12 +86,9 @@ $ php artisan vendor:publish --provider="Cog\Laravel\Sense\Providers\SenseServic
 
 ### Dashboard Authentication
 
-Sense exposes a dashboard at `/sense`.
-By default, you will only be able to access this dashboard in the `local` environment.
-To define a more specific access policy for the dashboard,
-you should use the `\Cog\Laravel\Sense\Authentication\Services\Authenticator::using` method.
-The `using` method accepts a callback which should return `true` or `false`,
-indicating whether the user should have access to the Sense dashboard.
+Sense exposes a dashboard at `/sense`. By default, you will only be able to access this dashboard in the `local` environment.
+To define a more specific access policy for the dashboard, you should use the `\Cog\Laravel\Sense\Authentication\Services\Authenticator::using` method.
+The `using` method accepts a callback which should return `true` or `false`, indicating whether the user should have access to the Sense dashboard.
 Typically, you should call `Authenticator::using` in the boot method of your `AppServiceProvider`:
 
 ```php
