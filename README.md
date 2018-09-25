@@ -14,6 +14,14 @@
 
 When you feel that your application is starting to run slower, be careful, it can become a smelling zombie! Open application black box in a minutes!
 
+### Requests list
+
+![requests-list](https://user-images.githubusercontent.com/1849174/46025584-f7b0a380-c0f1-11e8-92f4-3dcb13364d65.png)
+
+### Request details
+
+![request-statements-index](https://user-images.githubusercontent.com/1849174/46025620-0d25cd80-c0f2-11e8-9b97-845b2f49242b.png)
+
 ## Contents
 
 - [Features](#features)
