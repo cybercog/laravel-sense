@@ -43,7 +43,7 @@ class SenseServiceProvider extends ServiceProvider
     {
         if (is_null($config = config('database.connections.sense'))) {
             $defaultConnection = config('database.default');
-            if (is_null($fallbackConfig = config("database.connections.{$defaultConnection}"))){
+            if (is_null($fallbackConfig = config("database.connections.{$defaultConnection}"))) {
                 throw new \Exception('Database connection [sense] has not been configured.');
             }
             config(['database.connections.sense' => $fallbackConfig]);

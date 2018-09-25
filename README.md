@@ -83,7 +83,21 @@ $ php artisan vendor:publish --provider="Cog\Laravel\Sense\Providers\SenseServic
 
 ## Usage
 
-Sense exposes a dashboard at `/sense`. By default, you will only be able to access this dashboard in the `local` environment.
+### Dashboard Authentication
+
+Sense exposes a dashboard at `/sense`.
+By default, you will only be able to access this dashboard in the `local` environment.
+To define a more specific access policy for the dashboard,
+you should use the `\Cog\Laravel\Sense\Authentication\Services\Authenticator::using` method.
+The `using` method accepts a callback which should return `true` or `false`,
+indicating whether the user should have access to the Sense dashboard.
+Typically, you should call `Authenticator::using` in the boot method of your `AppServiceProvider`:
+
+```php
+\Cog\Laravel\Sense\Authentication\Services\Authenticator::auth(function ($request) {
+    // return true / false;
+});
+```
 
 ## Changelog
 
