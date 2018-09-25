@@ -12,7 +12,11 @@
 
 ## Introduction
 
+**DON'T USE IT ON PRODUCTION! IT WILL ENORMOUSLY SLOW DOWN APPLICATION!**
+
 When you feel that your application is starting to run slower, be careful, it can become a smelling zombie! Open application black box in a minutes!
+
+Laravel Sense provides a dashboard for application profiling. Sense allows you to easily monitor key metrics such as eloquent queries.
 
 ### Requests list
 
@@ -79,7 +83,7 @@ $ php artisan vendor:publish --provider="Cog\Laravel\Sense\Providers\SenseServic
 
 ## Usage
 
-> TODO: Write how to use it
+Sense exposes a dashboard at `/sense`. By default, you will only be able to access this dashboard in the `local` environment.
 
 ## Changelog
 
