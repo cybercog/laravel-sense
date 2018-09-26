@@ -44,13 +44,14 @@ Open application black box in a minutes!
 
 ## Features
 
-- Designed to work with Laravel Eloquent models.
-- Dashboard with profiling summaries.
-- Can profile APIs.
+- Can profile APIs
+- Designed to work with Laravel Eloquent models
+- Dashboard with profiling summaries
+- Easy to use dashboard authentication
 - Following PHP Standard Recommendations:
-  - [PSR-1 (Basic Coding Standard)](http://www.php-fig.org/psr/psr-1/).
-  - [PSR-2 (Coding Style Guide)](http://www.php-fig.org/psr/psr-2/).
-  - [PSR-4 (Autoloading Standard)](http://www.php-fig.org/psr/psr-4/).
+  - [PSR-1 (Basic Coding Standard)](http://www.php-fig.org/psr/psr-1/)
+  - [PSR-2 (Coding Style Guide)](http://www.php-fig.org/psr/psr-2/)
+  - [PSR-4 (Autoloading Standard)](http://www.php-fig.org/psr/psr-4/)
 
 ## Requirements
 
