@@ -66,7 +66,7 @@ Laravel Sense has a few requirements you should be aware of before installing:
 You can install the package via Composer.
 
 ```sh
-$ composer require --dev cybercog/laravel-sense
+$ composer require cybercog/laravel-sense --dev
 ```
 
 The package will register itself automatically.
@@ -128,6 +128,8 @@ If you discover any security related issues, please email open@cybercog.su inste
 [Laravel Sense contributors list](../../contributors)
 
 ## Alternatives
+
+- [barryvdh/laravel-debugbar](https://github.com/barryvdh/laravel-debugbar)
 
 *Feel free to add more alternatives as Pull Request.*
 
