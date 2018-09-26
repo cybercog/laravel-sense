@@ -100,7 +100,7 @@ class SenseServiceProvider extends ServiceProvider
 
             $this->publishes([
                 $migrationsPath => database_path('migrations'),
-            ], 'migrations');
+            ], 'sense-migrations');
 
             $this->publishes([
                 __DIR__ . '/../../config/sense.php' => config_path('sense.php'),

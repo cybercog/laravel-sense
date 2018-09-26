@@ -82,7 +82,7 @@ $ php artisan migrate
 If you want to make changes in migrations, publish them to your application first.
 
 ```sh
-$ php artisan vendor:publish --provider="Cog\Laravel\Sense\Providers\SenseServiceProvider" --tag=migrations
+$ php artisan vendor:publish --tag=sense-migrations
 ```
 
 ## Usage
