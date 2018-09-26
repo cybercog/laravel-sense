@@ -4,13 +4,30 @@ declare(strict_types=1);
 
 namespace Cog\Tests\Laravel\Sense;
 
-use PHPUnit\Framework\TestCase as BaseTestCase;
+use Mockery;
+use Orchestra\Testbench\TestCase as BaseTestCase;
 
-class TestCase extends BaseTestCase
+abstract class TestCase extends BaseTestCase
 {
-    /** @test */
-    public function it_can_run_tests()
+    /**
+     * Actions to be performed on PHPUnit start.
+     *
+     * @return void
+     */
+    protected function setUp(): void
     {
-        $this->assertTrue(true);
+        parent::setUp();
+    }
+
+    /**
+     * Clean up the testing environment before the next test.
+     *
+     * @return void
+     */
+    public function tearDown(): void
+    {
+        Mockery::close();
+
+        parent::tearDown();
     }
 }
