@@ -62,11 +62,13 @@ Laravel Sense has a few requirements you should be aware of before installing:
 
 ## Installation
 
-First, pull in the package through Composer.
+You can install the package via Composer.
 
 ```sh
-$ composer require cybercog/laravel-sense
+$ composer require --dev cybercog/laravel-sense
 ```
+
+The package will register itself automatically.
 
 #### Perform Database Migration
 
