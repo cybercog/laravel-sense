@@ -15,9 +15,9 @@
 > Beware! If you feel that your application starts to run slower, it can become a smelling zombie!
 
 Laravel Sense provides a dashboard for application profiling. Sense allows you to easily monitor key metrics such as HTTP requests & Eloquent queries.
-Open application black box in a minutes!
+Understand what is happening in black box system in a minutes!
 
-**DON'T USE IT ON PRODUCTION! IT WILL ENORMOUSLY SLOW DOWN APPLICATION!**
+**DON'T USE IT ON PRODUCTION! PROFILING MAY SLOW DOWN YOUR APPLICATION ENORMOUSLY!**
 
 ### Requests list
 

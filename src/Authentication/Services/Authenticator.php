@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of Laravel Authenticator.
+ * This file is part of Laravel Sense.
  *
  * (c) Anton Komarev <a.komarev@cybercog.su>
  *
