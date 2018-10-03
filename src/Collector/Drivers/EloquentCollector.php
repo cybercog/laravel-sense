@@ -13,10 +13,11 @@ declare(strict_types=1);
 
 namespace Cog\Laravel\Sense\Collector\Drivers;
 
+use Cog\Contracts\Laravel\Sense\Collector\Drivers\Collector as CollectorContract;
 use Illuminate\Database\Connection;
 use Illuminate\Database\Events\QueryExecuted;
 
-class EloquentCollector
+class EloquentCollector implements CollectorContract
 {
     /**
      * @var \Illuminate\Database\Connection
@@ -29,7 +30,7 @@ class EloquentCollector
     {
         $this->connection = $connection;
     }
-    
+
     /**
      * Returns the unique name of the collector.
      *
