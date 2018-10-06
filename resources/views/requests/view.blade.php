@@ -80,7 +80,7 @@
                 Updated at
             </th>
         </tr>
-        @foreach($summaries as $summary)
+        @foreach($statementSummaries as $summary)
             <tr>
                 <td class="text-center">
                     {{ $summary->id }}

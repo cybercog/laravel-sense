@@ -13,30 +13,11 @@ declare(strict_types=1);
 
 namespace Cog\Laravel\Sense\Http\Controllers;
 
-use Cog\Laravel\Sense\RequestSummary\Models\RequestSummary;
-use Cog\Laravel\Sense\StatementSummary\Models\StatementSummary;
-
 class AppController extends Controller
 {
-    public function __invoke($requestId = null)
+    public function __invoke()
     {
-        if ($requestId) {
-            $summaries = StatementSummary::query()
-                ->where('request_id', $requestId)
-                ->latest('id')
-                ->get();
-
-            $requestSummary = RequestSummary::query()
-                ->where('request_id', $requestId)
-                ->firstOrFail();
-
-            return view('sense::statements', compact('summaries', 'requestSummary'));
-        }
-
-        $summaries = RequestSummary::query()
-            ->latest('id')
-            ->get();
-
-        return view('sense::requests', compact('summaries'));
+        // TODO: Implement dashboard
+        return redirect()->to('/sense/requests');
     }
 }

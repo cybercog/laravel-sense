@@ -32,7 +32,7 @@
                     {{ $summary->id }}
                 </td>
                 <td class="uuid text-center">
-                    <a href="/sense/{{ $summary->request_id }}">
+                    <a href="/sense/requests/{{ $summary->request_id }}">
                         {{ $summary->request_id }}
                     </a>
                 </td>
