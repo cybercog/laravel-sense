@@ -19,4 +19,7 @@ use Illuminate\Support\Facades\Route;
 //});
 
 // Catch-all Route...
+Route::get('/requests')->uses('Requests\Collect\Action');
+Route::get('/requests/{request}')->uses('Requests\Get\Action');
+
 Route::get('/{view?}', 'AppController')->where('view', '(.*)')->name('sense.index');
