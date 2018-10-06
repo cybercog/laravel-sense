@@ -15,7 +15,6 @@ namespace Cog\Laravel\Sense\Http\Controllers\Requests\Collect;
 
 use Cog\Laravel\Sense\Http\Controllers\Controller;
 use Cog\Laravel\Sense\RequestSummary\Models\RequestSummary;
-use Cog\Laravel\Sense\StatementSummary\Models\StatementSummary;
 
 class Action extends Controller
 {
