@@ -73,7 +73,9 @@
                     <kbd>{{ $request->method }}</kbd>
                 </td>
                 <td class="text-center">
-                    {{ $request->summary->queries_count }}
+                    <a href="/sense/queries?filter[request][id]={{ $request->id }}">
+                        {{ $request->summary->queries_count }}
+                    </a>
                 </td>
                 <td class="text-center">
                     {{ $request->summary->time_total }}

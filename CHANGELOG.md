@@ -2,6 +2,16 @@
 
 All notable changes to `laravel-sense` will be documented in this file.
 
+## [0.4.0] - 2018-10-07
+
+### Added
+
+- `Query` model added to `Request` ([#18](https://github.com/cybercog/laravel-sense/pull/18)) 
+
+### Changed
+
+- Renamed Request `uuid` to `correlation_id` ([#17](https://github.com/cybercog/laravel-sense/pull/17))
+
 ## [0.3.0] - 2018-10-07
 
 ### Added
@@ -28,6 +38,7 @@ All notable changes to `laravel-sense` will be documented in this file.
 
 - Initial release
 
+[0.4.0]: https://github.com/cybercog/laravel-sense/compare/0.3.0...0.4.0
 [0.3.0]: https://github.com/cybercog/laravel-sense/compare/0.2.1...0.3.0
 [0.2.1]: https://github.com/cybercog/laravel-sense/compare/0.2.0...0.2.1
 [0.2.0]: https://github.com/cybercog/laravel-sense/compare/0.1.0...0.2.0
