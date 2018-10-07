@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace Cog\Laravel\Sense\Request\Models;
 
+use Cog\Laravel\Sense\Db\Query\Models\Query;
 use Cog\Laravel\Sense\RequestSummary\Models\RequestSummary;
 use Cog\Laravel\Sense\StatementSummary\Models\StatementSummary;
 use Cog\Laravel\Sense\Url\Models\Url;
@@ -46,5 +47,10 @@ class Request extends Model
     public function statementSummaries(): HasMany
     {
         return $this->hasMany(StatementSummary::class, 'request_id');
+    }
+
+    public function dbQueries(): HasMany
+    {
+        return $this->hasMany(Query::class, 'request_id');
     }
 }

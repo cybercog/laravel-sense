@@ -45,7 +45,9 @@
                 </a>
             </td>
             <td class="text-center">
-                {{ $request->summary->queries_count }}
+                <a href="/sense/queries?filter[request][id]={{ $request->id }}">
+                    {{ $request->summary->queries_count }}
+                </a>
             </td>
             <td class="text-center">
                 {{ $request->summary->time_total }}
@@ -96,7 +98,9 @@
                     {{ $summary->statement->value }}
                 </td>
                 <td class="text-center">
-                    {{ $summary->queries_count }}
+                    <a href="/sense/queries?filter[request][id]={{ $request->id }}&filter[statement][id]={{ $summary->statement->id }}">
+                        {{ $summary->queries_count }}
+                    </a>
                 </td>
                 <td class="text-center">
                     {{ $summary->time_total }}

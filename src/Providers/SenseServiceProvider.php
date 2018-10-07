@@ -147,6 +147,14 @@ class SenseServiceProvider extends ServiceProvider
             'value' => $query->sql,
         ]);
 
+        $request->dbQueries()->create([
+            'statement_id' => $statement->getKey(),
+            'connection' => $query->connectionName,
+            'sql' => $this->buildSqlString($query),
+            'bindings' => $query->bindings,
+            'time' => $query->time,
+        ]);
+
         /** @var \Cog\Laravel\Sense\StatementSummary\Models\StatementSummary $summary */
         $summary = $statement->summaries()
             ->where([
@@ -183,6 +191,24 @@ class SenseServiceProvider extends ServiceProvider
         $requestSummary->setAttribute('time_total', $requestSummary->getAttribute('time_total') + $query->time);
         $requestSummary->setAttribute('queries_count', $requestSummary->getAttribute('queries_count') + 1);
         $requestSummary->save();
+    }
+
+    private function buildSqlString(QueryExecuted $query): string
+    {
+        $pdo = $query->connection->getPdo();
+        $sql = $query->sql;
+
+        foreach ($query->bindings as $key => $binding) {
+            // This regex matches placeholders only, not the question marks,
+            // nested in quotes, while we iterate through the bindings
+            // and substitute placeholders by suitable values.
+            $regex = is_numeric($key)
+                ? "/\?(?=(?:[^'\\\']*'[^'\\\']*')*[^'\\\']*$)/"
+                : "/:{$key}(?=(?:[^'\\\']*'[^'\\\']*')*[^'\\\']*$)/";
+            $sql = preg_replace($regex, $pdo->quote((string)$binding), $sql, 1);
+        }
+
+        return $sql;
     }
 
     private function isQueryShouldBeStored(QueryExecuted $query): bool
