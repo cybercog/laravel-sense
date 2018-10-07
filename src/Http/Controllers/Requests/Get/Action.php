@@ -19,9 +19,9 @@ use Illuminate\Database\Eloquent\Relations\Relation;
 
 class Action extends Controller
 {
-    public function __invoke($uuid, Request $formRequest)
+    public function __invoke($correlationId, Request $formRequest)
     {
-        $query = RequestModel::query()->where('uuid', $uuid);
+        $query = RequestModel::query()->where('correlation_id', $correlationId);
 
         $query->with([
             'url',

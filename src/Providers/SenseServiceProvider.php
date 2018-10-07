@@ -125,7 +125,7 @@ class SenseServiceProvider extends ServiceProvider
 
         /** @var \Cog\Laravel\Sense\Request\Models\Request $request */
         $request = $url->requests()->create([
-            'uuid' => Id::make(),
+            'correlation_id' => Id::make(),
             'method' => request()->method(),
             // TODO: Add headers
             // TODO: Add body

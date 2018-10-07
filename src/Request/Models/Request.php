@@ -28,7 +28,7 @@ class Request extends Model
     protected $table = 'sense_requests';
 
     protected $fillable = [
-        'uuid',
+        'correlation_id',
         'url_id',
         'method',
     ];
