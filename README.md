@@ -130,7 +130,7 @@ If you discover any security related issues, please email open@cybercog.su inste
 ## Alternatives
 
 - [barryvdh/laravel-debugbar](https://github.com/barryvdh/laravel-debugbar)
-- [itsgoingd/clockwork](itsgoingd/clockwork)
+- [itsgoingd/clockwork](https://github.com/itsgoingd/clockwork)
 
 *Feel free to add more alternatives as Pull Request.*
 

@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace Cog\Laravel\Sense\Providers;
 
+use Cog\Laravel\Sense\Db\Query\Models\Query;
 use Cog\Laravel\Sense\Request\Id;
 use Cog\Laravel\Sense\Request\Models\Request;
 use Cog\Laravel\Sense\RequestSummary\Models\RequestSummary;
@@ -23,6 +24,7 @@ use Illuminate\Database\Events\QueryExecuted;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
+use PDO;
 
 class SenseServiceProvider extends ServiceProvider
 {
@@ -147,13 +149,16 @@ class SenseServiceProvider extends ServiceProvider
             'value' => $query->sql,
         ]);
 
-        $request->dbQueries()->create([
+        /** @var \Cog\Laravel\Sense\Db\Query\Models\Query $queryModel */
+        $queryModel = $request->dbQueries()->create([
             'statement_id' => $statement->getKey(),
             'connection' => $query->connectionName,
             'sql' => $this->buildSqlString($query),
             'bindings' => $query->bindings,
             'time' => $query->time,
         ]);
+
+        $this->explainQuery($queryModel, $query);
 
         /** @var \Cog\Laravel\Sense\StatementSummary\Models\StatementSummary $summary */
         $summary = $statement->summaries()
@@ -209,6 +214,27 @@ class SenseServiceProvider extends ServiceProvider
         }
 
         return $sql;
+    }
+
+    private function explainQuery(Query $queryModel, QueryExecuted $query): void
+    {
+        $explainTypes = [
+            'select',
+//            'insert',
+//            'update',
+//            'delete',
+        ];
+        if (starts_with(strtolower($query->sql), $explainTypes)) {
+            $pdo = $query->connection->getPdo();
+            $bindings = $query->connection->prepareBindings($query->bindings);
+            $statement = $pdo->prepare('EXPLAIN ' . $query->sql);
+            $statement->execute($bindings);
+            $explanation = $statement->fetchAll(PDO::FETCH_CLASS);
+
+            $queryModel->explanation()->create([
+                'result' => $explanation,
+            ]);
+        }
     }
 
     private function isQueryShouldBeStored(QueryExecuted $query): bool

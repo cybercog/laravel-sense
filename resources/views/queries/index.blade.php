@@ -20,6 +20,9 @@
                 Time
             </th>
             <th>
+                Explain
+            </th>
+            <th>
                 Created at
             </th>
             <th>
@@ -44,6 +47,11 @@
                 </td>
                 <td class="text-center">
                     {{ $query->time }}
+                </td>
+                <td>
+                    <a href="/sense/queries/{{ $query->id }}">
+                        <kbd>EXPLAIN</kbd>
+                    </a>
                 </td>
                 <td class="text-center">
                     {{ $query->created_at }}
