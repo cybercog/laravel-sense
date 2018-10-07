@@ -13,7 +13,9 @@ declare(strict_types=1);
 
 namespace Cog\Laravel\Sense\RequestSummary\Models;
 
+use Cog\Laravel\Sense\Request\Models\Request;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class RequestSummary extends Model
 {
@@ -22,9 +24,6 @@ class RequestSummary extends Model
     protected $table = 'sense_request_summaries';
 
     protected $fillable = [
-        'request_id',
-        'method',
-        'url',
         'queries_count',
         'time_total',
     ];
@@ -33,4 +32,9 @@ class RequestSummary extends Model
         'queries_count' => 'int',
         'time_total' => 'float',
     ];
+
+    public function request(): BelongsTo
+    {
+        return $this->belongsTo(Request::class, 'request_id');
+    }
 }

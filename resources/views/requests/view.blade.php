@@ -1,14 +1,14 @@
 @extends('sense::app')
 
 @section('content')
-    <h2 class="mt-4 mb-4">Request Summary</h2>
+    <h2 class="mt-4 mb-4">Request</h2>
     <table class="table">
         <tr>
             <th>
                 #
             </th>
             <th class="uuid">
-                Request ID
+                Request UUID
             </th>
             <th>
                 URL
@@ -28,31 +28,31 @@
         </tr>
         <tr>
             <td class="text-center">
-                {{ $requestSummary->id }}
+                {{ $request->id }}
             </td>
-            <td class="uuid text-center">
-                {{ $requestSummary->request_id }}
+            <td class="uuid">
+                {{ $request->uuid }}
             </td>
             <td>
-                <kbd>{{ $requestSummary->method }}</kbd>
-                {{ $requestSummary->url }}
+                <kbd>{{ $request->method }}</kbd>
+                {{ $request->url->address }}
             </td>
             <td class="text-center">
-                {{ $requestSummary->queries_count }}
+                {{ $request->summary->queries_count }}
             </td>
             <td class="text-center">
-                {{ $requestSummary->time_total }}
+                {{ $request->summary->time_total }}
             </td>
             <td class="text-center">
-                {{ $requestSummary->created_at }}
+                {{ $request->summary->created_at }}
             </td>
             <td class="text-center">
-                {{ $requestSummary->updated_at }}
+                {{ $request->summary->updated_at }}
             </td>
         </tr>
     </table>
 
-    <h2 class="mt-4 mb-4">Statements Summary</h2>
+    <h2 class="mt-4 mb-4">Request Statements</h2>
     <table class="table">
         <tr>
             <th>
@@ -80,7 +80,7 @@
                 Updated at
             </th>
         </tr>
-        @foreach($statementSummaries as $summary)
+        @foreach($request->statementSummaries as $summary)
             <tr>
                 <td class="text-center">
                     {{ $summary->id }}
