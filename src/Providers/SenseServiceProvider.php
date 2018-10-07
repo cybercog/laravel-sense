@@ -205,7 +205,7 @@ class SenseServiceProvider extends ServiceProvider
             $regex = is_numeric($key)
                 ? "/\?(?=(?:[^'\\\']*'[^'\\\']*')*[^'\\\']*$)/"
                 : "/:{$key}(?=(?:[^'\\\']*'[^'\\\']*')*[^'\\\']*$)/";
-            $sql = preg_replace($regex, $pdo->quote((string)$binding), $sql, 1);
+            $sql = preg_replace($regex, $pdo->quote((string) $binding), $sql, 1);
         }
 
         return $sql;
