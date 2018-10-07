@@ -25,5 +25,6 @@ Route::get('/requests/{request}')->uses('Requests\Get\Action');
 Route::get('/urls/{url}')->uses('Urls\Get\Action');
 
 Route::get('/queries')->uses('Queries\Collect\Action');
+Route::get('/queries/{query}')->uses('Queries\Get\Action');
 
 Route::get('/{view?}', 'AppController')->where('view', '(.*)')->name('sense.index');

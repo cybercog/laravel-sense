@@ -13,10 +13,12 @@ declare(strict_types=1);
 
 namespace Cog\Laravel\Sense\Db\Query\Models;
 
+use Cog\Laravel\Sense\Db\QueryExplanation\Models\QueryExplanation;
 use Cog\Laravel\Sense\Request\Models\Request;
 use Cog\Laravel\Sense\Statement\Models\Statement;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Query extends Model
 {
@@ -44,5 +46,10 @@ class Query extends Model
     public function statement(): BelongsTo
     {
         return $this->belongsTo(Statement::class, 'statement_id');
+    }
+
+    public function explanation(): HasOne
+    {
+        return $this->hasOne(QueryExplanation::class, 'query_id');
     }
 }

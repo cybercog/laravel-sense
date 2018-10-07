@@ -2,6 +2,12 @@
 
 All notable changes to `laravel-sense` will be documented in this file.
 
+## [0.5.0] - 2018-10-07
+
+### Added
+
+- `QueryExplanation` model added ([#19](https://github.com/cybercog/laravel-sense/pull/19)) 
+
 ## [0.4.0] - 2018-10-07
 
 ### Added
@@ -38,6 +44,7 @@ All notable changes to `laravel-sense` will be documented in this file.
 
 - Initial release
 
+[0.5.0]: https://github.com/cybercog/laravel-sense/compare/0.4.0...0.5.0
 [0.4.0]: https://github.com/cybercog/laravel-sense/compare/0.3.0...0.4.0
 [0.3.0]: https://github.com/cybercog/laravel-sense/compare/0.2.1...0.3.0
 [0.2.1]: https://github.com/cybercog/laravel-sense/compare/0.2.0...0.2.1
