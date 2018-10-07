@@ -70,7 +70,7 @@
                     </a>
                 </td>
                 <td class="text-center">
-                    {{ $request->method }}
+                    <kbd>{{ $request->method }}</kbd>
                 </td>
                 <td class="text-center">
                     {{ $request->summary->queries_count }}

@@ -11,6 +11,9 @@
                 UUID
             </th>
             <th>
+                Method
+            </th>
+            <th>
                 URL
             </th>
             <th>
@@ -36,8 +39,10 @@
                         {{ $request->uuid }}
                     </a>
                 </td>
-                <td>
+                <td class="text-center">
                     <kbd>{{ $request->method }}</kbd>
+                </td>
+                <td>
                     <a href="/sense/urls/{{ $request->url->id }}">
                         {{ $request->url->address }}
                     </a>

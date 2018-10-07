@@ -8,7 +8,10 @@
                 #
             </th>
             <th class="uuid">
-                Request UUID
+                UUID
+            </th>
+            <th>
+                Method
             </th>
             <th>
                 URL
@@ -33,9 +36,13 @@
             <td class="uuid">
                 {{ $request->uuid }}
             </td>
-            <td>
+            <td class="text-center">
                 <kbd>{{ $request->method }}</kbd>
-                {{ $request->url->address }}
+            </td>
+            <td>
+                <a href="/sense/urls/{{ $request->url->id }}">
+                    {{ $request->url->address }}
+                </a>
             </td>
             <td class="text-center">
                 {{ $request->summary->queries_count }}
