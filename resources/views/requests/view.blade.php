@@ -8,7 +8,7 @@
                 #
             </th>
             <th class="uuid">
-                UUID
+                Correlation ID
             </th>
             <th>
                 Method
@@ -34,7 +34,7 @@
                 {{ $request->id }}
             </td>
             <td class="uuid">
-                {{ $request->uuid }}
+                {{ $request->correlation_id }}
             </td>
             <td class="text-center">
                 <kbd>{{ $request->method }}</kbd>

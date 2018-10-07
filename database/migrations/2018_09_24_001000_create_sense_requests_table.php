@@ -26,12 +26,12 @@ class CreateSenseRequestsTable extends Migration
     {
         Schema::create('sense_requests', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->uuid('uuid');
+            $table->uuid('correlation_id');
             $table->unsignedBigInteger('url_id');
             $table->string('method');
             $table->timestamps();
 
-            $table->index('uuid');
+            $table->index('correlation_id');
             $table->index('url_id');
         });
     }

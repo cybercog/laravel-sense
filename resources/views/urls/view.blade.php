@@ -41,7 +41,7 @@
                 #
             </th>
             <th class="uuid">
-                UUID
+                Correlation ID
             </th>
             <th>
                 Method
@@ -65,8 +65,8 @@
                     {{ $request->id }}
                 </td>
                 <td>
-                    <a href="/sense/requests/{{ $request->uuid }}">
-                        {{ $request->uuid }}
+                    <a href="/sense/requests/{{ $request->correlation_id }}">
+                        {{ $request->correlation_id }}
                     </a>
                 </td>
                 <td class="text-center">
