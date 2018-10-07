@@ -11,31 +11,24 @@
 
 declare(strict_types=1);
 
-namespace Cog\Laravel\Sense\Statement\Models;
+namespace Cog\Laravel\Sense\Url\Models;
 
 use Cog\Laravel\Sense\Request\Models\Request;
-use Cog\Laravel\Sense\StatementSummary\Models\StatementSummary;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class Statement extends Model
+class Url extends Model
 {
     protected $connection = 'sense';
 
-    protected $table = 'sense_statements';
+    protected $table = 'sense_urls';
 
     protected $fillable = [
-        'value',
+        'address',
     ];
 
-    public function summaries(): HasMany
+    public function requests(): HasMany
     {
-        return $this->hasMany(StatementSummary::class, 'statement_id');
-    }
-
-    public function request(): BelongsTo
-    {
-        return $this->belongsTo(Request::class, 'request_id');
+        return $this->hasMany(Request::class, 'url_id');
     }
 }

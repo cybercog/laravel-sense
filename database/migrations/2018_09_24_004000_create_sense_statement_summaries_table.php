@@ -26,7 +26,7 @@ class CreateSenseStatementSummariesTable extends Migration
     {
         Schema::create('sense_statement_summaries', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->char('request_id', 36);
+            $table->unsignedBigInteger('request_id');
             $table->unsignedBigInteger('statement_id');
             $table->string('connection');
             $table->unsignedInteger('queries_count')->default('0');

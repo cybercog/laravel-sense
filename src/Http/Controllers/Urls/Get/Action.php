@@ -11,29 +11,27 @@
 
 declare(strict_types=1);
 
-namespace Cog\Laravel\Sense\Http\Controllers\Requests\Get;
+namespace Cog\Laravel\Sense\Http\Controllers\Urls\Get;
 
 use Cog\Laravel\Sense\Http\Controllers\Controller;
-use Cog\Laravel\Sense\Request\Models\Request as RequestModel;
+use Cog\Laravel\Sense\Url\Models\Url;
 use Illuminate\Database\Eloquent\Relations\Relation;
 
 class Action extends Controller
 {
-    public function __invoke($uuid, Request $formRequest)
+    public function __invoke($url, Request $request)
     {
-        $query = RequestModel::query()->where('uuid', $uuid);
+        $query = Url::query()->whereKey($url);
 
         $query->with([
-            'url',
-            'summary',
-            'statementSummaries' => function (Relation $relation) {
+            'requests' => function (Relation $relation) {
                 $relation->latest('id');
             },
-            'statementSummaries.statement',
+            'requests.summary',
         ]);
 
-        $request = $query->firstOrFail();
+        $url = $query->firstOrFail();
 
-        return new Response($request);
+        return new Response($url);
     }
 }

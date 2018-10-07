@@ -11,20 +11,18 @@
 
 declare(strict_types=1);
 
-namespace Cog\Laravel\Sense\Http\Controllers\Requests\Get;
+namespace Cog\Laravel\Sense\Http\Controllers\Urls\Get;
 
 use Illuminate\Contracts\Support\Responsable;
 
 class Response implements Responsable
 {
-    /**
-     * @var \Cog\Laravel\Sense\Request\Models\Request
-     */
-    private $request;
+    /** @var \Cog\Laravel\Sense\Url\Models\Url */
+    private $url;
 
-    public function __construct($request)
+    public function __construct($url)
     {
-        $this->request = $request;
+        $this->url = $url;
     }
 
     public function toResponse($request)
@@ -34,8 +32,8 @@ class Response implements Responsable
 
     private function toHtml()
     {
-        return view('sense::requests.view', [
-            'request' => $this->request,
+        return view('sense::urls.view', [
+            'url' => $this->url,
         ]);
     }
 

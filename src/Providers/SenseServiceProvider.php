@@ -14,9 +14,11 @@ declare(strict_types=1);
 namespace Cog\Laravel\Sense\Providers;
 
 use Cog\Laravel\Sense\Request\Id;
+use Cog\Laravel\Sense\Request\Models\Request;
 use Cog\Laravel\Sense\RequestSummary\Models\RequestSummary;
 use Cog\Laravel\Sense\Statement\Models\Statement;
 use Cog\Laravel\Sense\StatementSummary\Models\StatementSummary;
+use Cog\Laravel\Sense\Url\Models\Url;
 use Illuminate\Database\Events\QueryExecuted;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
@@ -116,27 +118,29 @@ class SenseServiceProvider extends ServiceProvider
             return;
         }
 
-        $requestId = Id::make();
-        /** @var \Cog\Laravel\Sense\RequestSummary\Models\RequestSummary $requestSummary */
-        $requestSummary = RequestSummary::query()->firstOrCreate([
-            'request_id' => $requestId,
-            // TODO: Extract to Request model
+        /** @var \Cog\Laravel\Sense\Url\Models\Url $url */
+        $url = Url::query()->firstOrCreate([
+            'address' => request()->fullUrl(),
+        ]);
+
+        /** @var \Cog\Laravel\Sense\Request\Models\Request $request */
+        $request = $url->requests()->create([
+            'uuid' => Id::make(),
             'method' => request()->method(),
-            'url' => request()->fullUrl(),
             // TODO: Add headers
             // TODO: Add body
         ]);
+        $request->summary()->create();
 
-        DB::listen(function (QueryExecuted $query) use ($requestId, $requestSummary) {
+        DB::listen(function (QueryExecuted $query) use ($request) {
             if ($this->isQueryShouldBeStored($query)) {
-                $this->storeStatement($requestId, $query);
-                $this->updateRequestSummary($requestSummary, $query);
+                $this->storeStatement($request, $query);
+                $this->updateRequestSummary($request->getAttribute('summary'), $query);
             }
         });
     }
 
-    // TODO: Pass Request model instead of the string
-    private function storeStatement(string $requestId, QueryExecuted $query): void
+    private function storeStatement(Request $request, QueryExecuted $query): void
     {
         /** @var \Cog\Laravel\Sense\Statement\Models\Statement $statement */
         $statement = Statement::query()->firstOrCreate([
@@ -146,12 +150,12 @@ class SenseServiceProvider extends ServiceProvider
         /** @var \Cog\Laravel\Sense\StatementSummary\Models\StatementSummary $summary */
         $summary = $statement->summaries()
             ->where([
-                'request_id' => $requestId,
+                'request_id' => $request->getKey(),
                 'connection' => $query->connectionName,
             ])->first();
         if (!$summary) {
             $summary = $statement->summaries()->create([
-                'request_id' => $requestId,
+                'request_id' => $request->getKey(),
                 'connection' => $query->connectionName,
                 'time_min' => 0.0,
                 'time_max' => 0.0,

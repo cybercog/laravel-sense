@@ -14,16 +14,21 @@ declare(strict_types=1);
 namespace Cog\Laravel\Sense\Http\Controllers\Requests\Collect;
 
 use Cog\Laravel\Sense\Http\Controllers\Controller;
-use Cog\Laravel\Sense\RequestSummary\Models\RequestSummary;
+use Cog\Laravel\Sense\Request\Models\Request as RequestModel;
 
 class Action extends Controller
 {
-    public function __invoke(Request $request)
+    public function __invoke(Request $formRequest)
     {
-        $requestSummaries = RequestSummary::query()
-            ->latest('id')
-            ->get();
+        $query = RequestModel::query();
 
-        return new Response($requestSummaries);
+        $query->with([
+            'summary',
+            'url',
+        ]);
+
+        $requests = $query->latest('id')->get();
+
+        return new Response($requests);
     }
 }

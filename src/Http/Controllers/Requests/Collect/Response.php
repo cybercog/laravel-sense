@@ -18,13 +18,13 @@ use Illuminate\Contracts\Support\Responsable;
 class Response implements Responsable
 {
     /**
-     * @var \Cog\Laravel\Sense\RequestSummary\Models\RequestSummary[]
+     * @var \Cog\Laravel\Sense\Request\Models\Request[]
      */
-    private $requestSummaries;
+    private $requests;
 
-    public function __construct($requestSummaries)
+    public function __construct($requests)
     {
-        $this->requestSummaries = $requestSummaries;
+        $this->requests = $requests;
     }
 
     public function toResponse($request)
@@ -35,7 +35,7 @@ class Response implements Responsable
     private function toHtml()
     {
         return view('sense::requests.index', [
-            'summaries' => $this->requestSummaries,
+            'requests' => $this->requests,
         ]);
     }
 
