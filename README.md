@@ -131,6 +131,7 @@ If you discover any security related issues, please email open@cybercog.su inste
 
 - [barryvdh/laravel-debugbar](https://github.com/barryvdh/laravel-debugbar)
 - [itsgoingd/clockwork](https://github.com/itsgoingd/clockwork)
+- [jkocik/laravel-profiler](https://github.com/jkocik/laravel-profiler)
 
 *Feel free to add more alternatives as Pull Request.*
 
