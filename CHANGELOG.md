@@ -2,6 +2,12 @@
 
 All notable changes to `laravel-sense` will be documented in this file.
 
+## [0.5.1] - 2019-04-03
+
+### Added
+
+- Laravel 5.8 support
+
 ## [0.5.0] - 2018-10-07
 
 ### Added
