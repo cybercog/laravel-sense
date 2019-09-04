@@ -4,6 +4,12 @@ All notable changes to `cybercog/laravel-sense` will be documented in this file.
 
 ## [Unreleased]
 
+## [0.5.2] - 2019-09-04
+
+### Added
+
+- Laravel 6 support
+
 ## [0.5.1] - 2019-04-03
 
 ### Added
@@ -52,7 +58,8 @@ All notable changes to `cybercog/laravel-sense` will be documented in this file.
 
 - Initial release
 
-[Unreleased]: https://github.com/cybercog/laravel-sense/compare/0.5.1...master
+[Unreleased]: https://github.com/cybercog/laravel-sense/compare/0.5.2...master
+[0.5.2]: https://github.com/cybercog/laravel-sense/compare/0.5.1...0.5.2
 [0.5.1]: https://github.com/cybercog/laravel-sense/compare/0.5.0...0.5.1
 [0.5.0]: https://github.com/cybercog/laravel-sense/compare/0.4.0...0.5.0
 [0.4.0]: https://github.com/cybercog/laravel-sense/compare/0.3.0...0.4.0
