@@ -8,7 +8,7 @@ All notable changes to `cybercog/laravel-sense` will be documented in this file.
 
 ### Added
 
-- Laravel 6 support
+- ([#21]) Laravel 6 support
 
 ## [0.5.1] - 2019-04-03
 
@@ -67,6 +67,7 @@ All notable changes to `cybercog/laravel-sense` will be documented in this file.
 [0.2.1]: https://github.com/cybercog/laravel-sense/compare/0.2.0...0.2.1
 [0.2.0]: https://github.com/cybercog/laravel-sense/compare/0.1.0...0.2.0
 
+[#21]: https://github.com/cybercog/laravel-sense/pull/21
 [#19]: https://github.com/cybercog/laravel-sense/pull/19
 [#18]: https://github.com/cybercog/laravel-sense/pull/18
 [#17]: https://github.com/cybercog/laravel-sense/pull/17
