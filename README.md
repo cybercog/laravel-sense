@@ -65,7 +65,7 @@ Laravel Sense has a few requirements you should be aware of before installing:
 
 You can install the package via Composer.
 
-```sh
+```shell script
 $ composer require cybercog/laravel-sense --dev
 ```
 
@@ -75,13 +75,13 @@ The package will register itself automatically.
 
 At last you need to publish and run database migrations.
 
-```sh
+```shell script
 $ php artisan migrate
 ```
 
 If you want to make changes in migrations, publish them to your application first.
 
-```sh
+```shell script
 $ php artisan vendor:publish --tag=sense-migrations
 ```
 
@@ -112,7 +112,7 @@ Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
 
 Run the tests with:
 
-```sh
+```shell script
 $ vendor/bin/phpunit
 ```
 
