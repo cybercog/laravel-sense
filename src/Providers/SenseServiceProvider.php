@@ -220,9 +220,9 @@ class SenseServiceProvider extends ServiceProvider
     {
         $explainTypes = [
             'select',
-//            'insert',
-//            'update',
-//            'delete',
+            //'insert',
+            //'update',
+            //'delete',
         ];
         if (starts_with(strtolower($query->sql), $explainTypes)) {
             $pdo = $query->connection->getPdo();
