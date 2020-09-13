@@ -24,6 +24,7 @@ use Illuminate\Database\Events\QueryExecuted;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Str;
 use PDO;
 
 class SenseServiceProvider extends ServiceProvider
@@ -224,7 +225,7 @@ class SenseServiceProvider extends ServiceProvider
             //'update',
             //'delete',
         ];
-        if (starts_with(strtolower($query->sql), $explainTypes)) {
+        if (Str::startsWith(strtolower($query->sql), $explainTypes)) {
             $pdo = $query->connection->getPdo();
             $bindings = $query->connection->prepareBindings($query->bindings);
             $statement = $pdo->prepare('EXPLAIN ' . $query->sql);
