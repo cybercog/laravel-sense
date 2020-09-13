@@ -64,7 +64,7 @@
 
     <h3 class="mt-4 mb-4">Query Explain</h3>
 
-    @if (count($query->explanation) > 0)
+    @if ($query->explanation !== null)
         @foreach($query->explanation->result as $explain)
             <table class="table">
                 <tr>
