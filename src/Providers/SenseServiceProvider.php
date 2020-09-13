@@ -20,7 +20,6 @@ use Cog\Laravel\Sense\RequestSummary\Models\RequestSummary;
 use Cog\Laravel\Sense\Statement\Models\Statement;
 use Cog\Laravel\Sense\StatementSummary\Models\StatementSummary;
 use Cog\Laravel\Sense\Url\Models\Url;
-use DateTimeInterface;
 use Illuminate\Database\Events\QueryExecuted;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
