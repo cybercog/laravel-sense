@@ -8,7 +8,7 @@ All notable changes to `cybercog/laravel-sense` will be documented in this file.
 
 ### Added
 
-- Laravel 8 support
+- ([#25]) Laravel 8 support
 
 ## [0.5.3] - 2020-03-06
 
@@ -81,6 +81,7 @@ All notable changes to `cybercog/laravel-sense` will be documented in this file.
 [0.2.1]: https://github.com/cybercog/laravel-sense/compare/0.2.0...0.2.1
 [0.2.0]: https://github.com/cybercog/laravel-sense/compare/0.1.0...0.2.0
 
+[#25]: https://github.com/cybercog/laravel-sense/pull/25
 [#23]: https://github.com/cybercog/laravel-sense/pull/23
 [#21]: https://github.com/cybercog/laravel-sense/pull/21
 [#19]: https://github.com/cybercog/laravel-sense/pull/19
