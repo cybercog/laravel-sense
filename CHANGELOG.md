@@ -4,6 +4,15 @@ All notable changes to `cybercog/laravel-sense` will be documented in this file.
 
 ## [Unreleased]
 
+## [0.6.1] - 2020-09-14
+
+### Fixed
+
+- ([#26]) Fix postgres support
+- ([#27]) Fix Laravel 7 & 8 support
+- ([#28]) Fix query explanation rendering
+- ([#29]) Fix DateTime SQL bindings
+
 ## [0.6.0] - 2020-09-13
 
 ### Added
@@ -70,7 +79,8 @@ All notable changes to `cybercog/laravel-sense` will be documented in this file.
 
 - Initial release
 
-[Unreleased]: https://github.com/cybercog/laravel-sense/compare/0.6.0...master
+[Unreleased]: https://github.com/cybercog/laravel-sense/compare/0.6.1...master
+[0.6.1]: https://github.com/cybercog/laravel-sense/compare/0.6.0...0.6.1
 [0.6.0]: https://github.com/cybercog/laravel-sense/compare/0.5.3...0.6.0
 [0.5.3]: https://github.com/cybercog/laravel-sense/compare/0.5.2...0.5.3
 [0.5.2]: https://github.com/cybercog/laravel-sense/compare/0.5.1...0.5.2
@@ -81,6 +91,10 @@ All notable changes to `cybercog/laravel-sense` will be documented in this file.
 [0.2.1]: https://github.com/cybercog/laravel-sense/compare/0.2.0...0.2.1
 [0.2.0]: https://github.com/cybercog/laravel-sense/compare/0.1.0...0.2.0
 
+[#29]: https://github.com/cybercog/laravel-sense/pull/29
+[#28]: https://github.com/cybercog/laravel-sense/pull/28
+[#27]: https://github.com/cybercog/laravel-sense/pull/27
+[#26]: https://github.com/cybercog/laravel-sense/pull/26
 [#25]: https://github.com/cybercog/laravel-sense/pull/25
 [#23]: https://github.com/cybercog/laravel-sense/pull/23
 [#21]: https://github.com/cybercog/laravel-sense/pull/21

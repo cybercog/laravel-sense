@@ -3,7 +3,7 @@
 <head>
     <title>Sense</title>
     <meta charset="utf-8">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
     <style>
         * {
             margin: 0;
@@ -13,7 +13,7 @@
             background-color: white;
             height: 100%;
             line-height: 1.4;
-            font-family: 'Nunito', sans-serif;
+            font-family: 'Inter', sans-serif;
         }
         .container {
             margin: 0 auto;
