@@ -203,14 +203,16 @@ class SenseServiceProvider extends ServiceProvider
     {
         $pdo = $query->connection->getPdo();
         $sql = $query->sql;
+        $bindings = $query->connection->prepareBindings($query->bindings);
 
-        foreach ($query->bindings as $key => $binding) {
+        foreach ($bindings as $key => $binding) {
             // This regex matches placeholders only, not the question marks,
             // nested in quotes, while we iterate through the bindings
             // and substitute placeholders by suitable values.
             $regex = is_numeric($key)
                 ? "/\?(?=(?:[^'\\\']*'[^'\\\']*')*[^'\\\']*$)/"
                 : "/:{$key}(?=(?:[^'\\\']*'[^'\\\']*')*[^'\\\']*$)/";
+
             $sql = preg_replace($regex, $pdo->quote((string) $binding), $sql, 1);
         }
 
