@@ -31,7 +31,9 @@ class CreateSenseStatementsTable extends Migration
             $table->timestamps();
         });
 
-        DB::statement('ALTER TABLE `sense_statements` ADD FULLTEXT sense_statements_value_index(`value`)');
+        if (DB::connection()->getPdo()->getAttribute(PDO::ATTR_DRIVER_NAME) === 'mysql') {
+            DB::statement('ALTER TABLE `sense_statements` ADD FULLTEXT sense_statements_value_index(`value`)');
+        }
     }
 
     /**

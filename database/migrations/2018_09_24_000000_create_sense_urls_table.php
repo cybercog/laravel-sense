@@ -31,7 +31,9 @@ class CreateSenseUrlsTable extends Migration
             $table->timestamps();
         });
 
-        DB::statement('ALTER TABLE `sense_urls` ADD FULLTEXT sense_urls_address_index(`address`)');
+        if (DB::connection()->getPdo()->getAttribute(PDO::ATTR_DRIVER_NAME) === 'mysql') {
+            DB::statement('ALTER TABLE `sense_urls` ADD FULLTEXT sense_urls_address_index(`address`)');
+        }
     }
 
     /**
